@@ -13,23 +13,23 @@
 <body>
   <div class="controls">
     <span class="speedControl">
-      <button class="btn">-</button>
-      <span class="currentSpeed">x1</span>
-      <button class="btn">+</button>
+      <button class="btn" id="speedDec">-</button>
+      <span class="currentSpeed" id="currentSpeed">x1</span>
+      <button class="btn" id="speedInc">+</button>
     </span>
     <span class="playerControl">
-      <button class="btn">Stop</button>
-      <button class="btn">Pause</button>
-      <button class="btn">Play</button>
+      <button class="btn" id="stopBtn">Stop</button>
+      <button class="btn" id="PauseBtn">Pause</button>
+      <button class="btn" id="PlayBtn">Play</button>
 
     </span>
     <span class="miscControl">
-      <button class="btn">Dec</button>
-      <span class="textSize">Text size: 16px</span>
-      <button class="btn">Inc</button>
+      <button class="btn" id="decFontBtn">Dec</button>
+      <span class="textSize" id="currentFontSize">Text size: 16px</span>
+      <button class="btn" id="incFontBtn">Inc</button>
     </span>
   </div>
 
-  <textarea class="script" name="text">Enter script here</textarea>
+  <textarea class="script" name="text" id="script">Enter script here</textarea>
 </body>
 </html>
