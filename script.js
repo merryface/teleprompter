@@ -33,9 +33,11 @@ speedDec.addEventListener("click", () => {
 incFontBtn.addEventListener("click", () => {
   if (fontSize < 100) fontSize += 2
   currentFontSize.innerText = `Text size: ${fontSize}px`
+  script.style.fontSize = `${fontSize}px`
 })
 
 decFontBtn.addEventListener("click", () => {
   if (fontSize > 10) fontSize -= 2
   currentFontSize.innerText = `Text size: ${fontSize}px`
+  script.style.fontSize = `${fontSize}px`
 })
