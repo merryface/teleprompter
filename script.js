@@ -70,3 +70,13 @@ const stopPrompter = () => {
 playBtn.addEventListener('click', startPrompter);
 pauseBtn.addEventListener('click', pausePrompter);
 stopBtn.addEventListener('click', stopPrompter);
+
+// Load saved script from local storage
+if (localStorage.getItem("script")) {
+  script.value = localStorage.getItem("script");
+}
+
+// Update saved script when new line is added
+script.addEventListener("input", () => {
+  localStorage.setItem("script", script.value);
+});
