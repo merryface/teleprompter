@@ -62,7 +62,7 @@ button:focus {
 
 .script {
   width: 100%;
-  min-height: 400px;
+  height: 80vh;
   background-color: rgb(39, 37, 37);
   border-radius: 3px;
 }
