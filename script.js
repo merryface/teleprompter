@@ -17,6 +17,8 @@ let fontSize = 16
 
 const script = document.getElementById("script")
 
+let scrollInterval = null;
+let currentScroll = 0;
 
 // change speed
 speedInc.addEventListener("click", () => {
@@ -41,3 +43,30 @@ decFontBtn.addEventListener("click", () => {
   currentFontSize.innerText = `Text size: ${fontSize}px`
   script.style.fontSize = `${fontSize}px`
 })
+
+// Start prompter
+const startPrompter = () => {
+  const scrollHeight = script.scrollHeight - script.clientHeight;
+  scrollInterval = setInterval(() => {
+    if (currentScroll < scrollHeight) {
+      currentScroll += speed;
+      script.scrollTop = currentScroll;
+    } else {
+      clearInterval(scrollInterval);
+    }
+  }, 60); // Change this value to adjust the refresh rate of the scroll interval.
+};
+
+const pausePrompter = () => {
+  clearInterval(scrollInterval);
+};
+
+const stopPrompter = () => {
+  clearInterval(scrollInterval);
+  currentScroll = 0;
+  script.scrollTop = 0;
+};
+
+playBtn.addEventListener('click', startPrompter);
+pauseBtn.addEventListener('click', pausePrompter);
+stopBtn.addEventListener('click', stopPrompter);
