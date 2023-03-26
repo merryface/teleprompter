@@ -20,28 +20,46 @@ const script = document.getElementById("script")
 let scrollInterval = null;
 let currentScroll = 0;
 
+
+// Load saved speed from local storage
+if (localStorage.getItem("speed")) {
+  speed = parseInt(localStorage.getItem("speed"));
+  currentSpeed.innerText = `x${speed}`;
+}
+
 // change speed
 speedInc.addEventListener("click", () => {
   if (speed < 20) speed += 1
+  localStorage.setItem("speed", speed.toString());
   currentSpeed.innerText = `x${speed}`
 })
 
 speedDec.addEventListener("click", () => {
   if (speed > 1) speed -= 1
+  localStorage.setItem("speed", speed.toString());
   currentSpeed.innerText = `x${speed}`
 })
+
+// Load saved font size from local storage
+if (localStorage.getItem("fontSize")) {
+  fontSize = parseInt(localStorage.getItem("fontSize"));
+  currentFontSize.innerText = `Text size: ${fontSize}px`;
+  script.style.fontSize = `${fontSize}px`;
+}
 
 // change font size
 incFontBtn.addEventListener("click", () => {
   if (fontSize < 100) fontSize += 2
   currentFontSize.innerText = `Text size: ${fontSize}px`
   script.style.fontSize = `${fontSize}px`
+  localStorage.setItem("fontSize", fontSize.toString());
 })
 
 decFontBtn.addEventListener("click", () => {
   if (fontSize > 10) fontSize -= 2
   currentFontSize.innerText = `Text size: ${fontSize}px`
   script.style.fontSize = `${fontSize}px`
+  localStorage.setItem("fontSize", fontSize.toString());
 })
 
 // Start prompter
