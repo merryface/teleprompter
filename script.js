@@ -23,21 +23,22 @@ let currentScroll = 0;
 
 // Load saved speed from local storage
 if (localStorage.getItem("speed")) {
-  speed = parseInt(localStorage.getItem("speed"));
+  speed = parseFloat(localStorage.getItem("speed"));
   currentSpeed.innerText = `x ${speed.toFixed(1)}`;
 }
 
 // change speed
 speedInc.addEventListener("click", () => {
   if (speed < 20) speed += 0.1
-  localStorage.setItem("speed", speed.toFixed(1).toString());
+  localStorage.setItem("speed", speed);
   currentSpeed.innerText = `x ${speed.toFixed(1)}`
 })
 
 speedDec.addEventListener("click", () => {
   if (speed > 0.2) speed -= 0.1
-  localStorage.setItem("speed", speed.toFixed(1).toString());
+  localStorage.setItem("speed", speed);
   currentSpeed.innerText = `x ${speed.toFixed(1)}`
+
 })
 
 // Load saved font size from local storage
