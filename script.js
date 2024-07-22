@@ -2,7 +2,7 @@
 const speedDec = document.getElementById("speedDec")
 const speedInc = document.getElementById("speedInc")
 const currentSpeed = document.getElementById("currentSpeed")
-let speed = 1
+let speed = 0.5
 
 // Player controls
 const stopBtn = document.getElementById("stopBtn")
@@ -24,20 +24,20 @@ let currentScroll = 0;
 // Load saved speed from local storage
 if (localStorage.getItem("speed")) {
   speed = parseInt(localStorage.getItem("speed"));
-  currentSpeed.innerText = `x${speed}`;
+  currentSpeed.innerText = `x ${speed.toFixed(1)}`;
 }
 
 // change speed
 speedInc.addEventListener("click", () => {
-  if (speed < 20) speed += 1
-  localStorage.setItem("speed", speed.toString());
-  currentSpeed.innerText = `x${speed}`
+  if (speed < 20) speed += 0.1
+  localStorage.setItem("speed", speed.toFixed(1).toString());
+  currentSpeed.innerText = `x ${speed.toFixed(1)}`
 })
 
 speedDec.addEventListener("click", () => {
-  if (speed > 1) speed -= 1
-  localStorage.setItem("speed", speed.toString());
-  currentSpeed.innerText = `x${speed}`
+  if (speed > 0.2) speed -= 0.1
+  localStorage.setItem("speed", speed.toFixed(1).toString());
+  currentSpeed.innerText = `x ${speed.toFixed(1)}`
 })
 
 // Load saved font size from local storage
@@ -72,7 +72,7 @@ const startPrompter = () => {
     } else {
       clearInterval(scrollInterval);
     }
-  }, 60); // Change this value to adjust the refresh rate of the scroll interval.
+  }, 10); // Change this value to adjust the refresh rate of the scroll interval.
 };
 
 const pausePrompter = () => {
