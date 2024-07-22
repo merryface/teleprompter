@@ -1,4 +1,4 @@
-# Tarik's Teleprompter
+# [Tarik's Teleprompter](https://merryface.github.io/teleprompter/)
 
 Tarik's Teleprompter is a simple, web-based teleprompter application designed to assist with reading scripts smoothly and efficiently. This application allows users to control the speed of the script scrolling, pause, play, or stop the script, and adjust the font size for better readability. It also saves the script to the local storage of the browser, ensuring that your work is not lost even if the page is refreshed.
 
